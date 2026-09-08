@@ -3,14 +3,11 @@ class Program
 {
     static void Main()
     {
-        var product = new Product();
+        var controller = new ProductController();
+        controller.ShowProducts();
 
-        var repository = new ProductRepository();
-        repository.AddProduct();
-        var products = repository.GetProducts();
-
-       
     }
+
         
 
 }

@@ -25,6 +25,14 @@ namespace CsvLinqMvc
             product2.Price = 500;
 
             _products.Add(product2);
+
+            var product3 = new Product();
+
+            product3.Id = 3;
+            product3.Name = "Mouse";
+            product3.Price = 250;
+
+            _products.Add(product3);
             
 
         }
