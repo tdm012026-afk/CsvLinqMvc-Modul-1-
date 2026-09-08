@@ -6,8 +6,8 @@ namespace CsvLinqMvc
 {
     public class ProductController
     {
-        public ProductRepository _repository;
-        public ProductView _view;
+        private ProductRepository _repository;
+        private ProductView _view;
  
         public ProductController()
         {
@@ -15,10 +15,11 @@ namespace CsvLinqMvc
             _view = new ProductView();
         }
         public void ShowProducts()
-        {
-            var products = _repository.GetProducts();
+        {   
             _repository.AddProduct();
 
+            var products = _repository.GetProducts();
+           
             _view.ShowProducts(products);    
         }
         
