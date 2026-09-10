@@ -15,13 +15,25 @@ namespace CsvLinqMvc
             _view = new ProductView();
         }
         public void ShowProducts()
-        {   
-            _repository.AddProduct();
+        {   _repository.AddProduct();
 
             var products = _repository.GetProducts();
            
-            _view.ShowProducts(products);    
+           // _view.ShowProducts(products);    
+
+            var expensiveProducts = products
+                .Where(product => product.Price > 1000)
+                .ToList();
+            _view.ShowProducts(expensiveProducts);
+
+            var expensiveProductsNames = products
+                .Where(product => product.Price > 1000)
+                .Select(product => product.Name)
+                .ToList();
+            _view.ExpensiveProducts(expensiveProductsNames);
+            
         }
+
         
     }
 }
