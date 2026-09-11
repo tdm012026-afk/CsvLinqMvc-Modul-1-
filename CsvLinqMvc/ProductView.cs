@@ -20,5 +20,12 @@ namespace CsvLinqMvc
                 Console.WriteLine($"Product : {product}");
             }
         }
+        public void ShowDescriptions(List<string> description)
+        {
+            foreach (var product in description)
+            {
+                Console.WriteLine(product);
+            }
+        }
     }
 }

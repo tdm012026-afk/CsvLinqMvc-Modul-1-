@@ -8,16 +8,22 @@ namespace CsvLinqMvc
     {
         private ProductRepository _repository;
         private ProductView _view;
+        private ProductReader _reader;
  
         public ProductController()
         {
             _repository = new ProductRepository();
             _view = new ProductView();
+            _reader = new ProductReader();
         }
         public void ShowProducts()
-        {   _repository.AddProduct();
+        {
+            //_repository.AddProduct();
 
-            var products = _repository.GetProducts();
+            //var products = _repository.GetProducts();
+
+            var products = _reader.ReadProducts();
+            Console.WriteLine($"Loaded products: {products.Count}");
            
            // _view.ShowProducts(products);    
 
@@ -31,7 +37,16 @@ namespace CsvLinqMvc
                 .Select(product => product.Name)
                 .ToList();
             _view.ExpensiveProducts(expensiveProductsNames);
+
+            var productDescriptions = products
+                .Select(product => $"Product : {product.Name}, Price{product.Price}")
+                .ToList();
+
+            _view.ShowDescriptions(productDescriptions);
+
             
+
+
         }
 
         
