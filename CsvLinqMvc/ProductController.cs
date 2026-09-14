@@ -54,23 +54,44 @@ namespace CsvLinqMvc
                     Console.WriteLine();
                     break;
                 case "2":
+
                     var expensiveProductsNames = products
                         .Where(product => product.Price > 1000)
                         .Select(product => product.Name)
                         .ToList();
                     _view.ExpensiveProducts(expensiveProductsNames);
+
                     Console.WriteLine();
 
                     break;
                 case "3":
+
                     var productDescriptions = products
                         .Select(product => $"Product : {product.Name}, Price {product.Price}")
                         .ToList();
 
                     _view.ShowDescriptions(productDescriptions);
+
                     Console.WriteLine();
                     break;
-                default:
+
+                case "4":
+                    var sortedProducts = products
+                        .OrderBy(product => product.Price)
+                        .ToList();
+
+                    _view.ShowProducts(sortedProducts);
+
+                    Console.WriteLine();
+                    break;
+
+                case "5":
+                    var descendedProducts = products
+                        .OrderByDescending(product => product.Price)
+                        .ToList();
+
+                    _view.ShowProducts(descendedProducts);
+
                     Console.WriteLine();
                     break;
 
