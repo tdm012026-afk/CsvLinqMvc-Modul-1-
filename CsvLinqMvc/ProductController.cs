@@ -37,9 +37,45 @@ namespace CsvLinqMvc
 
             _view.ShowDescriptions(productDescriptions);
 
+        
+        }
+        public void ShowProducts(string choice)
+        {
+            var products = _repository.GetProducts();
             
+            switch (choice)
+            {
+                case "1":
+                    var expensiveProducts = products
+                        .Where(product => product.Price > 1000)
+                        .ToList();
+                    _view.ShowProducts(expensiveProducts);
+
+                    Console.WriteLine();
+                    break;
+                case "2":
+                    var expensiveProductsNames = products
+                        .Where(product => product.Price > 1000)
+                        .Select(product => product.Name)
+                        .ToList();
+                    _view.ExpensiveProducts(expensiveProductsNames);
+                    Console.WriteLine();
+
+                    break;
+                case "3":
+                    var productDescriptions = products
+                        .Select(product => $"Product : {product.Name}, Price {product.Price}")
+                        .ToList();
+
+                    _view.ShowDescriptions(productDescriptions);
+                    Console.WriteLine();
+                    break;
+                default:
+                    Console.WriteLine();
+                    break;
 
 
+            }
         }
 
         
