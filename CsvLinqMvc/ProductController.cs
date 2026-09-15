@@ -95,6 +95,10 @@ namespace CsvLinqMvc
                     Console.WriteLine();
                     break;
 
+                default:
+                    Console.WriteLine("Invalid choice");
+                    break;
+                    
 
             }
         }
