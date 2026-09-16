@@ -27,5 +27,9 @@ namespace CsvLinqMvc
                 Console.WriteLine(product);
             }
         }
+        public void ShowOneProduct(Product product)
+        {
+            Console.WriteLine($"Product: {product.Name}, Price {product.Price}");
+        }
     }
 }

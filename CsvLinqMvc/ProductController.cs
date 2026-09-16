@@ -95,12 +95,33 @@ namespace CsvLinqMvc
                     Console.WriteLine();
                     break;
 
+                 
+
                 default:
                     Console.WriteLine("Invalid choice");
                     break;
                     
 
             }
+        }
+        public Product FindProductById(int id)
+        {
+            var products = _repository.GetProducts();
+
+            var product = products.FirstOrDefault(product => product.Id == id);
+
+            //_view.ShowOneProduct(product);
+
+            if (product != null)
+            {
+                _view.ShowOneProduct(product);
+            }
+            else
+            {
+                Console.WriteLine("Product not found");
+            }
+
+            return product;
         }
 
         
