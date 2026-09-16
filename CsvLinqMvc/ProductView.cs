@@ -15,9 +15,9 @@ namespace CsvLinqMvc
         }
         public void ExpensiveProducts(List<string> names)
         {
-            foreach (var product in names)
+            foreach (var name in names)
             {
-                Console.WriteLine($"Product : {product}");
+                Console.WriteLine($"Product : {name}");
             }
         }
         public void ShowDescriptions(List<string> description)

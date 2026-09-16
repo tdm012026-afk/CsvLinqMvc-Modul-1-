@@ -33,7 +33,7 @@ class Program
                 Console.WriteLine("Enter product ID : ");
                 int id = int.Parse(Console.ReadLine());
 
-                Product productFoundById = controller.FindProductById(id);
+                controller.FindProductById(id);
 
                 continue;
 
