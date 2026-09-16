@@ -37,6 +37,12 @@ namespace CsvLinqMvc
 
             _view.ShowDescriptions(productDescriptions);
 
+            var productNames = products
+                .Select(product => product.Name)
+                .ToList();
+
+            _view.ShowProductNames(productNames);
+
         
         }
         public void ShowProducts(string choice)
@@ -110,7 +116,6 @@ namespace CsvLinqMvc
 
             var product = products.FirstOrDefault(product => product.Id == id);
 
-            //_view.ShowOneProduct(product);
 
             if (product != null)
             {
@@ -122,6 +127,16 @@ namespace CsvLinqMvc
             }
 
             return product;
+        }
+        public void ShowAllProductNames()
+        {
+            var products = _repository.GetProducts();
+
+            var productNames = products
+                .Select(product => product.Name)
+                .ToList();
+
+            _view.ShowProductNames(productNames);
         }
 
         

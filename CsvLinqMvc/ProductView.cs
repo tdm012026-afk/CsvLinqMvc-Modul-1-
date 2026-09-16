@@ -31,5 +31,12 @@ namespace CsvLinqMvc
         {
             Console.WriteLine($"Product: {product.Name}, Price {product.Price}");
         }
+        public void ShowProductNames(List<string> productNames)
+        {
+            foreach (var name in productNames)
+            {
+                Console.WriteLine(name);
+            }
+        }
     }
 }

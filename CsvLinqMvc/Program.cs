@@ -15,12 +15,20 @@ class Program
             Console.WriteLine("3. Show all products descriptions");
             Console.WriteLine("4. Show products sorted by price");
             Console.WriteLine("5. Show products sorted by price descending");
-            Console.WriteLine("6. Finf product by ID");
-            Console.WriteLine("7. Exit");
+            Console.WriteLine("6. Show all product names");
+            Console.WriteLine("7. Find product by ID");
+            Console.WriteLine("8. Exit");
 
             choice = Console.ReadLine();
 
             if (choice == "6")
+            {
+                controller.ShowAllProductNames ();
+
+                continue;
+            }
+
+            if (choice == "7")
             {
                 Console.WriteLine("Enter product ID : ");
                 int id = int.Parse(Console.ReadLine());
@@ -31,14 +39,14 @@ class Program
 
             }
 
-            if (choice == "7")
+            if (choice == "8")
             {
                 break;
             }
 
             controller.ShowProducts(choice);
 
-        } while (choice != "7");
+        } while (choice != "8");
 
 
     }
