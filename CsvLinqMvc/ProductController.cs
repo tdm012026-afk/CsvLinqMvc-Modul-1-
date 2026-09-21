@@ -23,20 +23,20 @@ namespace CsvLinqMvc
             switch (choice)
             {
                 case "1":
-                    var expensiveProducts = products
-                        .Where(product => product.Price > 1000)
+                    var highCaloriesProducts = products
+                        .Where(product => product.Calories > 100)
                         .ToList();
-                    _view.ShowProducts(expensiveProducts);
+                    _view.ShowProducts(highCaloriesProducts);
 
                     Console.WriteLine();
                     break;
                 case "2":
 
-                    var expensiveProductsNames = products
-                        .Where(product => product.Price > 1000)
+                    var sugarRichProducts = products
+                        .Where(product => product.Sugars > 10)
                         .Select(product => product.Name)
                         .ToList();
-                    _view.ExpensiveProducts(expensiveProductsNames);
+                    _view.ExpensiveProducts(sugarRichProducts);
 
                     Console.WriteLine();
 
@@ -44,7 +44,7 @@ namespace CsvLinqMvc
                 case "3":
 
                     var productDescriptions = products
-                        .Select(product => $"Product : {product.Name}, Price {product.Price}")
+                        .Select(product => $"Product : {product.Name}, {product.Calories}, {product.Rating}")
                         .ToList();
 
                     _view.ShowDescriptions(productDescriptions);
@@ -52,9 +52,10 @@ namespace CsvLinqMvc
                     Console.WriteLine();
                     break;
 
+
                 case "4":
                     var sortedProducts = products
-                        .OrderBy(product => product.Price)
+                        .OrderBy(product => product.Calories)
                         .ToList();
 
                     _view.ShowProducts(sortedProducts);
@@ -64,7 +65,7 @@ namespace CsvLinqMvc
 
                 case "5":
                     var descendedProducts = products
-                        .OrderByDescending(product => product.Price)
+                        .OrderByDescending(product => product.Rating)
                         .ToList();
 
                     _view.ShowProducts(descendedProducts);
@@ -81,24 +82,7 @@ namespace CsvLinqMvc
 
             }
         }
-        public Product FindProductById(int id)
-        {
-            var products = _repository.GetProducts();
-
-            var product = products.FirstOrDefault(product => product.Id == id);
-
-
-            if (product != null)
-            {
-                _view.ShowOneProduct(product);
-            }
-            else
-            {
-                Console.WriteLine("Product not found");
-            }
-
-            return product;
-        }
+        
         public void ShowAllProductNames()
         {
             var products = _repository.GetProducts();
