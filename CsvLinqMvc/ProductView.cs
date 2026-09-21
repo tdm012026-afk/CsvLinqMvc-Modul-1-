@@ -13,7 +13,7 @@ namespace CsvLinqMvc
                 Console.WriteLine($"Product: {item.Name}, Calories {item.Calories}");
             }
         }
-        public void ExpensiveProducts(List<string> names)
+        public void ShowSugarRichProducts(List<string> names)
         {
             foreach (var name in names)
             {
@@ -27,10 +27,7 @@ namespace CsvLinqMvc
                 Console.WriteLine(product);
             }
         }
-        public void ShowOneProduct(Product product)
-        {
-            Console.WriteLine($"Product: {product.Name}, Calories {product.Calories}");
-        }
+        
         public void ShowProductNames(List<string> productNames)
         {
             foreach (var name in productNames)

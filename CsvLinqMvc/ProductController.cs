@@ -36,7 +36,7 @@ namespace CsvLinqMvc
                         .Where(product => product.Sugars > 10)
                         .Select(product => product.Name)
                         .ToList();
-                    _view.ExpensiveProducts(sugarRichProducts);
+                    _view.ShowSugarRichProducts(sugarRichProducts);
 
                     Console.WriteLine();
 
