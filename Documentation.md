@@ -3,7 +3,7 @@
 ## Project Description
 This project reads product data from a CSV file and maps each row to a Product object.
 
-The program uses MVC structure and LINQ to search, filter, select and sort products.
+The program uses an MVC structure and LINQ to search, filter, select and sort products.
 
 The user can choose different operations from a console menu.
 
@@ -50,6 +50,18 @@ Is choice = 8?
    Return to menu
        ↓
    Display menu
+
+## Project Update
+
+The project was initially developed using a small test dataset.
+
+The dataset has now been replaced with the 80 Cereals dataset
+from the beginner-friendly datasets collection provided in the assignment.
+
+The C# model and CSV reader are being updated to match the new dataset.
+
+The LINQ queries and user menu will also be adapted to work
+with the new data.
 
 ## How to Run
 Run the program from Visual Studio.
